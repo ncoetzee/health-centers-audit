@@ -1,0 +1,3448 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "A RESTful API that serves data from the SF-SAC.",
+    "title": "v1.1.0",
+    "version": "12.2.12"
+  },
+  "host": "0.0.0.0:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json",
+    "application/vnd.pgrst.object+json;nulls=stripped",
+    "application/vnd.pgrst.object+json",
+    "text/csv"
+  ],
+  "produces": [
+    "application/json",
+    "application/vnd.pgrst.object+json;nulls=stripped",
+    "application/vnd.pgrst.object+json",
+    "text/csv"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "produces": [
+          "application/openapi+json",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "OpenAPI description (this document)",
+        "tags": [
+          "Introspection"
+        ]
+      }
+    },
+    "/passthrough": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.passthrough.report_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.passthrough.auditee_uei"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.passthrough.audit_year"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.passthrough.fac_accepted_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.passthrough.award_reference"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.passthrough.passthrough_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.passthrough.passthrough_name"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/order"
+          },
+          {
+            "$ref": "#/parameters/range"
+          },
+          {
+            "$ref": "#/parameters/rangeUnit"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/preferCount"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/passthrough"
+              },
+              "type": "array"
+            }
+          },
+          "206": {
+            "description": "Partial Content"
+          }
+        },
+        "tags": [
+          "passthrough"
+        ]
+      }
+    },
+    "/notes_to_sefa": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.notes_to_sefa.report_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.notes_to_sefa.auditee_uei"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.notes_to_sefa.audit_year"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.notes_to_sefa.fac_accepted_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.notes_to_sefa.title"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.notes_to_sefa.accounting_policies"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.notes_to_sefa.is_minimis_rate_used"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.notes_to_sefa.rate_explained"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.notes_to_sefa.content"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.notes_to_sefa.contains_chart_or_table"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/order"
+          },
+          {
+            "$ref": "#/parameters/range"
+          },
+          {
+            "$ref": "#/parameters/rangeUnit"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/preferCount"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/notes_to_sefa"
+              },
+              "type": "array"
+            }
+          },
+          "206": {
+            "description": "Partial Content"
+          }
+        },
+        "tags": [
+          "notes_to_sefa"
+        ]
+      }
+    },
+    "/resubmission": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.resubmission.report_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.resubmission.auditee_uei"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.resubmission.audit_year"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.resubmission.fac_accepted_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.resubmission.version"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.resubmission.status"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.resubmission.previous_report_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.resubmission.next_report_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.resubmission.original_submission_date"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/order"
+          },
+          {
+            "$ref": "#/parameters/range"
+          },
+          {
+            "$ref": "#/parameters/rangeUnit"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/preferCount"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/resubmission"
+              },
+              "type": "array"
+            }
+          },
+          "206": {
+            "description": "Partial Content"
+          }
+        },
+        "tags": [
+          "resubmission"
+        ]
+      }
+    },
+    "/corrective_action_plans": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.corrective_action_plans.report_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.corrective_action_plans.auditee_uei"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.corrective_action_plans.audit_year"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.corrective_action_plans.fac_accepted_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.corrective_action_plans.finding_ref_number"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.corrective_action_plans.contains_chart_or_table"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.corrective_action_plans.planned_action"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/order"
+          },
+          {
+            "$ref": "#/parameters/range"
+          },
+          {
+            "$ref": "#/parameters/rangeUnit"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/preferCount"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/corrective_action_plans"
+              },
+              "type": "array"
+            }
+          },
+          "206": {
+            "description": "Partial Content"
+          }
+        },
+        "tags": [
+          "corrective_action_plans"
+        ]
+      }
+    },
+    "/federal_awards": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.report_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.auditee_uei"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.audit_year"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.fac_accepted_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.award_reference"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.federal_agency_prefix"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.federal_award_extension"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.additional_award_identification"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.federal_program_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.amount_expended"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.cluster_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.other_cluster_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.state_cluster_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.cluster_total"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.federal_program_total"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.is_major"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.is_loan"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.loan_balance"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.is_direct"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.audit_report_type"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.findings_count"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.is_passthrough_award"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.federal_awards.passthrough_amount"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/order"
+          },
+          {
+            "$ref": "#/parameters/range"
+          },
+          {
+            "$ref": "#/parameters/rangeUnit"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/preferCount"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/federal_awards"
+              },
+              "type": "array"
+            }
+          },
+          "206": {
+            "description": "Partial Content"
+          }
+        },
+        "tags": [
+          "federal_awards"
+        ]
+      }
+    },
+    "/additional_ueis": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.additional_ueis.report_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.additional_ueis.auditee_uei"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.additional_ueis.audit_year"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.additional_ueis.fac_accepted_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.additional_ueis.additional_uei"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/order"
+          },
+          {
+            "$ref": "#/parameters/range"
+          },
+          {
+            "$ref": "#/parameters/rangeUnit"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/preferCount"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/additional_ueis"
+              },
+              "type": "array"
+            }
+          },
+          "206": {
+            "description": "Partial Content"
+          }
+        },
+        "tags": [
+          "additional_ueis"
+        ]
+      }
+    },
+    "/secondary_auditors": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.secondary_auditors.report_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.secondary_auditors.auditee_uei"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.secondary_auditors.audit_year"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.secondary_auditors.fac_accepted_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.secondary_auditors.auditor_ein"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.secondary_auditors.auditor_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.secondary_auditors.contact_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.secondary_auditors.contact_title"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.secondary_auditors.contact_email"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.secondary_auditors.contact_phone"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.secondary_auditors.address_street"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.secondary_auditors.address_city"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.secondary_auditors.address_state"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.secondary_auditors.address_zipcode"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/order"
+          },
+          {
+            "$ref": "#/parameters/range"
+          },
+          {
+            "$ref": "#/parameters/rangeUnit"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/preferCount"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/secondary_auditors"
+              },
+              "type": "array"
+            }
+          },
+          "206": {
+            "description": "Partial Content"
+          }
+        },
+        "tags": [
+          "secondary_auditors"
+        ]
+      }
+    },
+    "/findings": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.findings.report_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.findings.auditee_uei"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.findings.audit_year"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.findings.fac_accepted_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.findings.award_reference"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.findings.reference_number"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.findings.is_material_weakness"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.findings.is_modified_opinion"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.findings.is_other_findings"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.findings.is_other_matters"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.findings.prior_finding_ref_numbers"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.findings.is_questioned_costs"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.findings.is_repeat_finding"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.findings.is_significant_deficiency"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.findings.type_requirement"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/order"
+          },
+          {
+            "$ref": "#/parameters/range"
+          },
+          {
+            "$ref": "#/parameters/rangeUnit"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/preferCount"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/findings"
+              },
+              "type": "array"
+            }
+          },
+          "206": {
+            "description": "Partial Content"
+          }
+        },
+        "tags": [
+          "findings"
+        ]
+      }
+    },
+    "/findings_text": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.findings_text.report_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.findings_text.auditee_uei"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.findings_text.audit_year"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.findings_text.fac_accepted_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.findings_text.finding_ref_number"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.findings_text.contains_chart_or_table"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.findings_text.finding_text"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/order"
+          },
+          {
+            "$ref": "#/parameters/range"
+          },
+          {
+            "$ref": "#/parameters/rangeUnit"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/preferCount"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/findings_text"
+              },
+              "type": "array"
+            }
+          },
+          "206": {
+            "description": "Partial Content"
+          }
+        },
+        "tags": [
+          "findings_text"
+        ]
+      }
+    },
+    "/additional_eins": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.additional_eins.report_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.additional_eins.auditee_uei"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.additional_eins.audit_year"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.additional_eins.fac_accepted_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.additional_eins.additional_ein"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/order"
+          },
+          {
+            "$ref": "#/parameters/range"
+          },
+          {
+            "$ref": "#/parameters/rangeUnit"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/preferCount"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/additional_eins"
+              },
+              "type": "array"
+            }
+          },
+          "206": {
+            "description": "Partial Content"
+          }
+        },
+        "tags": [
+          "additional_eins"
+        ]
+      }
+    },
+    "/general": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.general.report_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_uei"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.audit_year"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_certify_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_certify_title"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_contact_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_email"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_phone"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_contact_title"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_address_line_1"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_city"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_state"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_ein"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_zip"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_certify_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_certify_title"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_phone"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_state"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_city"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_contact_title"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_address_line_1"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_zip"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_country"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_contact_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_email"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_firm_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_foreign_address"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_ein"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.cognizant_agency"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.oversight_agency"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.date_created"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.ready_for_certification_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_certified_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_certified_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.submitted_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.fac_accepted_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.fy_end_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.fy_start_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.audit_type"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.gaap_results"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.sp_framework_basis"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_sp_framework_required"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.sp_framework_opinions"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_going_concern_included"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_internal_control_deficiency_disclosed"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_internal_control_material_weakness_disclosed"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_material_noncompliance_disclosed"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.dollar_threshold"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_low_risk_auditee"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.agencies_with_prior_findings"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.entity_type"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.number_months"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.audit_period_covered"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.total_amount_expended"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.type_audit_code"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_public"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.data_source"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_aicpa_audit_guide_included"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_additional_ueis"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.resubmission_version"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.resubmission_status"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_multiple_eins"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_secondary_auditors"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/order"
+          },
+          {
+            "$ref": "#/parameters/range"
+          },
+          {
+            "$ref": "#/parameters/rangeUnit"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/preferCount"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/general"
+              },
+              "type": "array"
+            }
+          },
+          "206": {
+            "description": "Partial Content"
+          }
+        },
+        "tags": [
+          "general"
+        ]
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/body.general"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/preferPost"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        },
+        "tags": [
+          "general"
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.general.report_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_uei"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.audit_year"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_certify_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_certify_title"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_contact_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_email"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_phone"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_contact_title"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_address_line_1"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_city"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_state"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_ein"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_zip"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_certify_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_certify_title"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_phone"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_state"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_city"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_contact_title"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_address_line_1"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_zip"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_country"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_contact_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_email"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_firm_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_foreign_address"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_ein"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.cognizant_agency"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.oversight_agency"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.date_created"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.ready_for_certification_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_certified_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_certified_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.submitted_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.fac_accepted_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.fy_end_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.fy_start_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.audit_type"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.gaap_results"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.sp_framework_basis"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_sp_framework_required"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.sp_framework_opinions"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_going_concern_included"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_internal_control_deficiency_disclosed"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_internal_control_material_weakness_disclosed"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_material_noncompliance_disclosed"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.dollar_threshold"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_low_risk_auditee"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.agencies_with_prior_findings"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.entity_type"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.number_months"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.audit_period_covered"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.total_amount_expended"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.type_audit_code"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_public"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.data_source"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_aicpa_audit_guide_included"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_additional_ueis"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.resubmission_version"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.resubmission_status"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_multiple_eins"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_secondary_auditors"
+          },
+          {
+            "$ref": "#/parameters/preferReturn"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "tags": [
+          "general"
+        ]
+      },
+      "patch": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.general.report_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_uei"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.audit_year"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_certify_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_certify_title"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_contact_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_email"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_phone"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_contact_title"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_address_line_1"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_city"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_state"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_ein"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_zip"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_certify_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_certify_title"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_phone"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_state"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_city"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_contact_title"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_address_line_1"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_zip"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_country"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_contact_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_email"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_firm_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_foreign_address"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_ein"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.cognizant_agency"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.oversight_agency"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.date_created"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.ready_for_certification_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditor_certified_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.auditee_certified_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.submitted_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.fac_accepted_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.fy_end_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.fy_start_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.audit_type"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.gaap_results"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.sp_framework_basis"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_sp_framework_required"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.sp_framework_opinions"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_going_concern_included"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_internal_control_deficiency_disclosed"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_internal_control_material_weakness_disclosed"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_material_noncompliance_disclosed"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.dollar_threshold"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_low_risk_auditee"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.agencies_with_prior_findings"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.entity_type"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.number_months"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.audit_period_covered"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.total_amount_expended"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.type_audit_code"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_public"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.data_source"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_aicpa_audit_guide_included"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_additional_ueis"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.resubmission_version"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.resubmission_status"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_multiple_eins"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.general.is_secondary_auditors"
+          },
+          {
+            "$ref": "#/parameters/body.general"
+          },
+          {
+            "$ref": "#/parameters/preferReturn"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "tags": [
+          "general"
+        ]
+      }
+    },
+    "/rpc/request_file_access": {
+      "get": {
+        "parameters": [
+          {
+            "format": "text",
+            "in": "query",
+            "name": "report_id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "(rpc) request_file_access"
+        ]
+      },
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "args",
+            "required": true,
+            "schema": {
+              "properties": {
+                "report_id": {
+                  "format": "text",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "report_id"
+              ],
+              "type": "object"
+            }
+          },
+          {
+            "$ref": "#/parameters/preferParams"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "(rpc) request_file_access"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "passthrough": {
+      "properties": {
+        "report_id": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_uei": {
+          "format": "text",
+          "type": "string"
+        },
+        "audit_year": {
+          "format": "text",
+          "type": "string"
+        },
+        "fac_accepted_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "award_reference": {
+          "format": "text",
+          "type": "string"
+        },
+        "passthrough_id": {
+          "format": "text",
+          "type": "string"
+        },
+        "passthrough_name": {
+          "format": "text",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "notes_to_sefa": {
+      "properties": {
+        "report_id": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_uei": {
+          "format": "text",
+          "type": "string"
+        },
+        "audit_year": {
+          "format": "text",
+          "type": "string"
+        },
+        "fac_accepted_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "title": {
+          "format": "text",
+          "type": "string"
+        },
+        "accounting_policies": {
+          "format": "text",
+          "type": "string"
+        },
+        "is_minimis_rate_used": {
+          "format": "text",
+          "type": "string"
+        },
+        "rate_explained": {
+          "format": "text",
+          "type": "string"
+        },
+        "content": {
+          "format": "text",
+          "type": "string"
+        },
+        "contains_chart_or_table": {
+          "format": "text",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "resubmission": {
+      "properties": {
+        "report_id": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_uei": {
+          "format": "text",
+          "type": "string"
+        },
+        "audit_year": {
+          "format": "text",
+          "type": "string"
+        },
+        "fac_accepted_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "version": {
+          "format": "bigint",
+          "type": "integer"
+        },
+        "status": {
+          "format": "character varying",
+          "maxLength": 30,
+          "type": "string"
+        },
+        "previous_report_id": {
+          "format": "text",
+          "type": "string"
+        },
+        "next_report_id": {
+          "format": "text",
+          "type": "string"
+        },
+        "original_submission_date": {
+          "format": "date",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "corrective_action_plans": {
+      "properties": {
+        "report_id": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_uei": {
+          "format": "text",
+          "type": "string"
+        },
+        "audit_year": {
+          "format": "text",
+          "type": "string"
+        },
+        "fac_accepted_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "finding_ref_number": {
+          "format": "text",
+          "type": "string"
+        },
+        "contains_chart_or_table": {
+          "format": "text",
+          "type": "string"
+        },
+        "planned_action": {
+          "format": "text",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "federal_awards": {
+      "properties": {
+        "report_id": {
+          "description": "Note:\nThis is a Foreign Key to `additional_eins.report_id`.<fk table='additional_eins' column='report_id'/>",
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_uei": {
+          "format": "text",
+          "type": "string"
+        },
+        "audit_year": {
+          "format": "text",
+          "type": "string"
+        },
+        "fac_accepted_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "award_reference": {
+          "format": "text",
+          "type": "string"
+        },
+        "federal_agency_prefix": {
+          "format": "text",
+          "type": "string"
+        },
+        "federal_award_extension": {
+          "format": "text",
+          "type": "string"
+        },
+        "additional_award_identification": {
+          "format": "text",
+          "type": "string"
+        },
+        "federal_program_name": {
+          "format": "text",
+          "type": "string"
+        },
+        "amount_expended": {
+          "format": "bigint",
+          "type": "integer"
+        },
+        "cluster_name": {
+          "format": "text",
+          "type": "string"
+        },
+        "other_cluster_name": {
+          "format": "text",
+          "type": "string"
+        },
+        "state_cluster_name": {
+          "format": "text",
+          "type": "string"
+        },
+        "cluster_total": {
+          "format": "bigint",
+          "type": "integer"
+        },
+        "federal_program_total": {
+          "format": "bigint",
+          "type": "integer"
+        },
+        "is_major": {
+          "format": "text",
+          "type": "string"
+        },
+        "is_loan": {
+          "format": "text",
+          "type": "string"
+        },
+        "loan_balance": {
+          "format": "text",
+          "type": "string"
+        },
+        "is_direct": {
+          "format": "text",
+          "type": "string"
+        },
+        "audit_report_type": {
+          "format": "text",
+          "type": "string"
+        },
+        "findings_count": {
+          "format": "integer",
+          "type": "integer"
+        },
+        "is_passthrough_award": {
+          "format": "text",
+          "type": "string"
+        },
+        "passthrough_amount": {
+          "format": "bigint",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "additional_ueis": {
+      "properties": {
+        "report_id": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_uei": {
+          "format": "text",
+          "type": "string"
+        },
+        "audit_year": {
+          "format": "text",
+          "type": "string"
+        },
+        "fac_accepted_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "additional_uei": {
+          "format": "text",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "secondary_auditors": {
+      "properties": {
+        "report_id": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_uei": {
+          "format": "text",
+          "type": "string"
+        },
+        "audit_year": {
+          "format": "text",
+          "type": "string"
+        },
+        "fac_accepted_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "auditor_ein": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditor_name": {
+          "format": "text",
+          "type": "string"
+        },
+        "contact_name": {
+          "format": "text",
+          "type": "string"
+        },
+        "contact_title": {
+          "format": "text",
+          "type": "string"
+        },
+        "contact_email": {
+          "format": "text",
+          "type": "string"
+        },
+        "contact_phone": {
+          "format": "text",
+          "type": "string"
+        },
+        "address_street": {
+          "format": "text",
+          "type": "string"
+        },
+        "address_city": {
+          "format": "text",
+          "type": "string"
+        },
+        "address_state": {
+          "format": "text",
+          "type": "string"
+        },
+        "address_zipcode": {
+          "format": "text",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "findings": {
+      "properties": {
+        "report_id": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_uei": {
+          "format": "text",
+          "type": "string"
+        },
+        "audit_year": {
+          "format": "text",
+          "type": "string"
+        },
+        "fac_accepted_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "award_reference": {
+          "format": "text",
+          "type": "string"
+        },
+        "reference_number": {
+          "format": "text",
+          "type": "string"
+        },
+        "is_material_weakness": {
+          "format": "text",
+          "type": "string"
+        },
+        "is_modified_opinion": {
+          "format": "text",
+          "type": "string"
+        },
+        "is_other_findings": {
+          "format": "text",
+          "type": "string"
+        },
+        "is_other_matters": {
+          "format": "text",
+          "type": "string"
+        },
+        "prior_finding_ref_numbers": {
+          "format": "text",
+          "type": "string"
+        },
+        "is_questioned_costs": {
+          "format": "text",
+          "type": "string"
+        },
+        "is_repeat_finding": {
+          "format": "text",
+          "type": "string"
+        },
+        "is_significant_deficiency": {
+          "format": "text",
+          "type": "string"
+        },
+        "type_requirement": {
+          "format": "text",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "findings_text": {
+      "properties": {
+        "report_id": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_uei": {
+          "format": "text",
+          "type": "string"
+        },
+        "audit_year": {
+          "format": "text",
+          "type": "string"
+        },
+        "fac_accepted_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "finding_ref_number": {
+          "format": "text",
+          "type": "string"
+        },
+        "contains_chart_or_table": {
+          "format": "text",
+          "type": "string"
+        },
+        "finding_text": {
+          "format": "text",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "additional_eins": {
+      "properties": {
+        "report_id": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_uei": {
+          "format": "text",
+          "type": "string"
+        },
+        "audit_year": {
+          "format": "text",
+          "type": "string"
+        },
+        "fac_accepted_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "additional_ein": {
+          "format": "text",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "general": {
+      "properties": {
+        "report_id": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_uei": {
+          "format": "text",
+          "type": "string"
+        },
+        "audit_year": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_certify_name": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_certify_title": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_contact_name": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_email": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_name": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_phone": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_contact_title": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_address_line_1": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_city": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_state": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_ein": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditee_zip": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditor_certify_name": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditor_certify_title": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditor_phone": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditor_state": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditor_city": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditor_contact_title": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditor_address_line_1": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditor_zip": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditor_country": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditor_contact_name": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditor_email": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditor_firm_name": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditor_foreign_address": {
+          "format": "text",
+          "type": "string"
+        },
+        "auditor_ein": {
+          "format": "text",
+          "type": "string"
+        },
+        "cognizant_agency": {
+          "format": "text",
+          "type": "string"
+        },
+        "oversight_agency": {
+          "format": "text",
+          "type": "string"
+        },
+        "date_created": {
+          "format": "date",
+          "type": "string"
+        },
+        "ready_for_certification_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "auditor_certified_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "auditee_certified_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "submitted_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "fac_accepted_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "fy_end_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "fy_start_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "audit_type": {
+          "format": "text",
+          "type": "string"
+        },
+        "gaap_results": {
+          "format": "text",
+          "type": "string"
+        },
+        "sp_framework_basis": {
+          "format": "text",
+          "type": "string"
+        },
+        "is_sp_framework_required": {
+          "format": "text",
+          "type": "string"
+        },
+        "sp_framework_opinions": {
+          "format": "text",
+          "type": "string"
+        },
+        "is_going_concern_included": {
+          "format": "text",
+          "type": "string"
+        },
+        "is_internal_control_deficiency_disclosed": {
+          "format": "text",
+          "type": "string"
+        },
+        "is_internal_control_material_weakness_disclosed": {
+          "format": "text",
+          "type": "string"
+        },
+        "is_material_noncompliance_disclosed": {
+          "format": "text",
+          "type": "string"
+        },
+        "dollar_threshold": {
+          "format": "bigint",
+          "type": "integer"
+        },
+        "is_low_risk_auditee": {
+          "format": "text",
+          "type": "string"
+        },
+        "agencies_with_prior_findings": {
+          "format": "text",
+          "type": "string"
+        },
+        "entity_type": {
+          "format": "text",
+          "type": "string"
+        },
+        "number_months": {
+          "format": "text",
+          "type": "string"
+        },
+        "audit_period_covered": {
+          "format": "text",
+          "type": "string"
+        },
+        "total_amount_expended": {
+          "format": "bigint",
+          "type": "integer"
+        },
+        "type_audit_code": {
+          "format": "text",
+          "type": "string"
+        },
+        "is_public": {
+          "format": "boolean",
+          "type": "boolean"
+        },
+        "data_source": {
+          "format": "text",
+          "type": "string"
+        },
+        "is_aicpa_audit_guide_included": {
+          "format": "text",
+          "type": "string"
+        },
+        "is_additional_ueis": {
+          "format": "text",
+          "type": "string"
+        },
+        "resubmission_version": {
+          "format": "bigint",
+          "type": "integer"
+        },
+        "resubmission_status": {
+          "format": "character varying",
+          "maxLength": 30,
+          "type": "string"
+        },
+        "is_multiple_eins": {
+          "format": "text",
+          "type": "string"
+        },
+        "is_secondary_auditors": {
+          "format": "text",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "parameters": {
+    "preferParams": {
+      "name": "Prefer",
+      "description": "Preference",
+      "required": false,
+      "enum": [
+        "params=single-object"
+      ],
+      "in": "header",
+      "type": "string"
+    },
+    "preferReturn": {
+      "name": "Prefer",
+      "description": "Preference",
+      "required": false,
+      "enum": [
+        "return=representation",
+        "return=minimal",
+        "return=none"
+      ],
+      "in": "header",
+      "type": "string"
+    },
+    "preferCount": {
+      "name": "Prefer",
+      "description": "Preference",
+      "required": false,
+      "enum": [
+        "count=none"
+      ],
+      "in": "header",
+      "type": "string"
+    },
+    "preferPost": {
+      "name": "Prefer",
+      "description": "Preference",
+      "required": false,
+      "enum": [
+        "return=representation",
+        "return=minimal",
+        "return=none",
+        "resolution=ignore-duplicates",
+        "resolution=merge-duplicates"
+      ],
+      "in": "header",
+      "type": "string"
+    },
+    "select": {
+      "name": "select",
+      "description": "Filtering Columns",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "on_conflict": {
+      "name": "on_conflict",
+      "description": "On Conflict",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "order": {
+      "name": "order",
+      "description": "Ordering",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "range": {
+      "name": "Range",
+      "description": "Limiting and Pagination",
+      "required": false,
+      "in": "header",
+      "type": "string"
+    },
+    "rangeUnit": {
+      "name": "Range-Unit",
+      "description": "Limiting and Pagination",
+      "required": false,
+      "default": "items",
+      "in": "header",
+      "type": "string"
+    },
+    "offset": {
+      "name": "offset",
+      "description": "Limiting and Pagination",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "limit": {
+      "name": "limit",
+      "description": "Limiting and Pagination",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.passthrough": {
+      "name": "passthrough",
+      "description": "passthrough",
+      "required": false,
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/passthrough"
+      }
+    },
+    "rowFilter.passthrough.report_id": {
+      "name": "report_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.passthrough.auditee_uei": {
+      "name": "auditee_uei",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.passthrough.audit_year": {
+      "name": "audit_year",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.passthrough.fac_accepted_date": {
+      "name": "fac_accepted_date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.passthrough.award_reference": {
+      "name": "award_reference",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.passthrough.passthrough_id": {
+      "name": "passthrough_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.passthrough.passthrough_name": {
+      "name": "passthrough_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.notes_to_sefa": {
+      "name": "notes_to_sefa",
+      "description": "notes_to_sefa",
+      "required": false,
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/notes_to_sefa"
+      }
+    },
+    "rowFilter.notes_to_sefa.report_id": {
+      "name": "report_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.notes_to_sefa.auditee_uei": {
+      "name": "auditee_uei",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.notes_to_sefa.audit_year": {
+      "name": "audit_year",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.notes_to_sefa.fac_accepted_date": {
+      "name": "fac_accepted_date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.notes_to_sefa.title": {
+      "name": "title",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.notes_to_sefa.accounting_policies": {
+      "name": "accounting_policies",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.notes_to_sefa.is_minimis_rate_used": {
+      "name": "is_minimis_rate_used",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.notes_to_sefa.rate_explained": {
+      "name": "rate_explained",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.notes_to_sefa.content": {
+      "name": "content",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.notes_to_sefa.contains_chart_or_table": {
+      "name": "contains_chart_or_table",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.resubmission": {
+      "name": "resubmission",
+      "description": "resubmission",
+      "required": false,
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/resubmission"
+      }
+    },
+    "rowFilter.resubmission.report_id": {
+      "name": "report_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.resubmission.auditee_uei": {
+      "name": "auditee_uei",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.resubmission.audit_year": {
+      "name": "audit_year",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.resubmission.fac_accepted_date": {
+      "name": "fac_accepted_date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.resubmission.version": {
+      "name": "version",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.resubmission.status": {
+      "name": "status",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.resubmission.previous_report_id": {
+      "name": "previous_report_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.resubmission.next_report_id": {
+      "name": "next_report_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.resubmission.original_submission_date": {
+      "name": "original_submission_date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.corrective_action_plans": {
+      "name": "corrective_action_plans",
+      "description": "corrective_action_plans",
+      "required": false,
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/corrective_action_plans"
+      }
+    },
+    "rowFilter.corrective_action_plans.report_id": {
+      "name": "report_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.corrective_action_plans.auditee_uei": {
+      "name": "auditee_uei",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.corrective_action_plans.audit_year": {
+      "name": "audit_year",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.corrective_action_plans.fac_accepted_date": {
+      "name": "fac_accepted_date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.corrective_action_plans.finding_ref_number": {
+      "name": "finding_ref_number",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.corrective_action_plans.contains_chart_or_table": {
+      "name": "contains_chart_or_table",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.corrective_action_plans.planned_action": {
+      "name": "planned_action",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.federal_awards": {
+      "name": "federal_awards",
+      "description": "federal_awards",
+      "required": false,
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/federal_awards"
+      }
+    },
+    "rowFilter.federal_awards.report_id": {
+      "name": "report_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.auditee_uei": {
+      "name": "auditee_uei",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.audit_year": {
+      "name": "audit_year",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.fac_accepted_date": {
+      "name": "fac_accepted_date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.award_reference": {
+      "name": "award_reference",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.federal_agency_prefix": {
+      "name": "federal_agency_prefix",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.federal_award_extension": {
+      "name": "federal_award_extension",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.additional_award_identification": {
+      "name": "additional_award_identification",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.federal_program_name": {
+      "name": "federal_program_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.amount_expended": {
+      "name": "amount_expended",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.cluster_name": {
+      "name": "cluster_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.other_cluster_name": {
+      "name": "other_cluster_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.state_cluster_name": {
+      "name": "state_cluster_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.cluster_total": {
+      "name": "cluster_total",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.federal_program_total": {
+      "name": "federal_program_total",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.is_major": {
+      "name": "is_major",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.is_loan": {
+      "name": "is_loan",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.loan_balance": {
+      "name": "loan_balance",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.is_direct": {
+      "name": "is_direct",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.audit_report_type": {
+      "name": "audit_report_type",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.findings_count": {
+      "name": "findings_count",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.is_passthrough_award": {
+      "name": "is_passthrough_award",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.federal_awards.passthrough_amount": {
+      "name": "passthrough_amount",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.additional_ueis": {
+      "name": "additional_ueis",
+      "description": "additional_ueis",
+      "required": false,
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/additional_ueis"
+      }
+    },
+    "rowFilter.additional_ueis.report_id": {
+      "name": "report_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.additional_ueis.auditee_uei": {
+      "name": "auditee_uei",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.additional_ueis.audit_year": {
+      "name": "audit_year",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.additional_ueis.fac_accepted_date": {
+      "name": "fac_accepted_date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.additional_ueis.additional_uei": {
+      "name": "additional_uei",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.secondary_auditors": {
+      "name": "secondary_auditors",
+      "description": "secondary_auditors",
+      "required": false,
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/secondary_auditors"
+      }
+    },
+    "rowFilter.secondary_auditors.report_id": {
+      "name": "report_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.secondary_auditors.auditee_uei": {
+      "name": "auditee_uei",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.secondary_auditors.audit_year": {
+      "name": "audit_year",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.secondary_auditors.fac_accepted_date": {
+      "name": "fac_accepted_date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.secondary_auditors.auditor_ein": {
+      "name": "auditor_ein",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.secondary_auditors.auditor_name": {
+      "name": "auditor_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.secondary_auditors.contact_name": {
+      "name": "contact_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.secondary_auditors.contact_title": {
+      "name": "contact_title",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.secondary_auditors.contact_email": {
+      "name": "contact_email",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.secondary_auditors.contact_phone": {
+      "name": "contact_phone",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.secondary_auditors.address_street": {
+      "name": "address_street",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.secondary_auditors.address_city": {
+      "name": "address_city",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.secondary_auditors.address_state": {
+      "name": "address_state",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.secondary_auditors.address_zipcode": {
+      "name": "address_zipcode",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.findings": {
+      "name": "findings",
+      "description": "findings",
+      "required": false,
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/findings"
+      }
+    },
+    "rowFilter.findings.report_id": {
+      "name": "report_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.findings.auditee_uei": {
+      "name": "auditee_uei",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.findings.audit_year": {
+      "name": "audit_year",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.findings.fac_accepted_date": {
+      "name": "fac_accepted_date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.findings.award_reference": {
+      "name": "award_reference",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.findings.reference_number": {
+      "name": "reference_number",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.findings.is_material_weakness": {
+      "name": "is_material_weakness",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.findings.is_modified_opinion": {
+      "name": "is_modified_opinion",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.findings.is_other_findings": {
+      "name": "is_other_findings",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.findings.is_other_matters": {
+      "name": "is_other_matters",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.findings.prior_finding_ref_numbers": {
+      "name": "prior_finding_ref_numbers",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.findings.is_questioned_costs": {
+      "name": "is_questioned_costs",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.findings.is_repeat_finding": {
+      "name": "is_repeat_finding",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.findings.is_significant_deficiency": {
+      "name": "is_significant_deficiency",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.findings.type_requirement": {
+      "name": "type_requirement",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.findings_text": {
+      "name": "findings_text",
+      "description": "findings_text",
+      "required": false,
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/findings_text"
+      }
+    },
+    "rowFilter.findings_text.report_id": {
+      "name": "report_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.findings_text.auditee_uei": {
+      "name": "auditee_uei",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.findings_text.audit_year": {
+      "name": "audit_year",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.findings_text.fac_accepted_date": {
+      "name": "fac_accepted_date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.findings_text.finding_ref_number": {
+      "name": "finding_ref_number",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.findings_text.contains_chart_or_table": {
+      "name": "contains_chart_or_table",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.findings_text.finding_text": {
+      "name": "finding_text",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.additional_eins": {
+      "name": "additional_eins",
+      "description": "additional_eins",
+      "required": false,
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/additional_eins"
+      }
+    },
+    "rowFilter.additional_eins.report_id": {
+      "name": "report_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.additional_eins.auditee_uei": {
+      "name": "auditee_uei",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.additional_eins.audit_year": {
+      "name": "audit_year",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.additional_eins.fac_accepted_date": {
+      "name": "fac_accepted_date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.additional_eins.additional_ein": {
+      "name": "additional_ein",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.general": {
+      "name": "general",
+      "description": "general",
+      "required": false,
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/general"
+      }
+    },
+    "rowFilter.general.report_id": {
+      "name": "report_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditee_uei": {
+      "name": "auditee_uei",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.audit_year": {
+      "name": "audit_year",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditee_certify_name": {
+      "name": "auditee_certify_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditee_certify_title": {
+      "name": "auditee_certify_title",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditee_contact_name": {
+      "name": "auditee_contact_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditee_email": {
+      "name": "auditee_email",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditee_name": {
+      "name": "auditee_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditee_phone": {
+      "name": "auditee_phone",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditee_contact_title": {
+      "name": "auditee_contact_title",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditee_address_line_1": {
+      "name": "auditee_address_line_1",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditee_city": {
+      "name": "auditee_city",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditee_state": {
+      "name": "auditee_state",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditee_ein": {
+      "name": "auditee_ein",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditee_zip": {
+      "name": "auditee_zip",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditor_certify_name": {
+      "name": "auditor_certify_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditor_certify_title": {
+      "name": "auditor_certify_title",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditor_phone": {
+      "name": "auditor_phone",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditor_state": {
+      "name": "auditor_state",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditor_city": {
+      "name": "auditor_city",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditor_contact_title": {
+      "name": "auditor_contact_title",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditor_address_line_1": {
+      "name": "auditor_address_line_1",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditor_zip": {
+      "name": "auditor_zip",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditor_country": {
+      "name": "auditor_country",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditor_contact_name": {
+      "name": "auditor_contact_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditor_email": {
+      "name": "auditor_email",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditor_firm_name": {
+      "name": "auditor_firm_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditor_foreign_address": {
+      "name": "auditor_foreign_address",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditor_ein": {
+      "name": "auditor_ein",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.cognizant_agency": {
+      "name": "cognizant_agency",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.oversight_agency": {
+      "name": "oversight_agency",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.date_created": {
+      "name": "date_created",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.ready_for_certification_date": {
+      "name": "ready_for_certification_date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditor_certified_date": {
+      "name": "auditor_certified_date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.auditee_certified_date": {
+      "name": "auditee_certified_date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.submitted_date": {
+      "name": "submitted_date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.fac_accepted_date": {
+      "name": "fac_accepted_date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.fy_end_date": {
+      "name": "fy_end_date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.fy_start_date": {
+      "name": "fy_start_date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.audit_type": {
+      "name": "audit_type",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.gaap_results": {
+      "name": "gaap_results",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.sp_framework_basis": {
+      "name": "sp_framework_basis",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.is_sp_framework_required": {
+      "name": "is_sp_framework_required",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.sp_framework_opinions": {
+      "name": "sp_framework_opinions",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.is_going_concern_included": {
+      "name": "is_going_concern_included",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.is_internal_control_deficiency_disclosed": {
+      "name": "is_internal_control_deficiency_disclosed",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.is_internal_control_material_weakness_disclosed": {
+      "name": "is_internal_control_material_weakness_disclosed",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.is_material_noncompliance_disclosed": {
+      "name": "is_material_noncompliance_disclosed",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.dollar_threshold": {
+      "name": "dollar_threshold",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.is_low_risk_auditee": {
+      "name": "is_low_risk_auditee",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.agencies_with_prior_findings": {
+      "name": "agencies_with_prior_findings",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.entity_type": {
+      "name": "entity_type",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.number_months": {
+      "name": "number_months",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.audit_period_covered": {
+      "name": "audit_period_covered",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.total_amount_expended": {
+      "name": "total_amount_expended",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.type_audit_code": {
+      "name": "type_audit_code",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.is_public": {
+      "name": "is_public",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.data_source": {
+      "name": "data_source",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.is_aicpa_audit_guide_included": {
+      "name": "is_aicpa_audit_guide_included",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.is_additional_ueis": {
+      "name": "is_additional_ueis",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.resubmission_version": {
+      "name": "resubmission_version",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.resubmission_status": {
+      "name": "resubmission_status",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.is_multiple_eins": {
+      "name": "is_multiple_eins",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general.is_secondary_auditors": {
+      "name": "is_secondary_auditors",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    }
+  },
+  "externalDocs": {
+    "description": "PostgREST Documentation",
+    "url": "https://postgrest.org/en/v12/references/api.html"
+  }
+}

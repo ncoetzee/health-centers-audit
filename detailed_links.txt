@@ -1,0 +1,7 @@
+LINK: https://search.usa.gov/search?affiliate=fac-transition-site&query=#main-content CLASS: usa-skipnav HTML: Skip to main content
+BUTTON:  CLASS: usa-accordion__button usa-banner__button HTML: <span class="usa-banner__button-text">Here’s how you know</span>
+LINK: https://www.fac.gov/ CLASS: usa-link logo-link HTML: <img class="usa-identifier__logo" src="/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6
+LINK: https://www.fac.gov/ CLASS: usa-link logo-link HTML: Federal Audit Clearinghouse
+BUTTON:  CLASS: usa-nav__close HTML: <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="usa-icon
+BUTTON:  CLASS: usa-button HTML: <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="usa-search__submit-ico
+LINK: https://search.usa.gov/search?affiliate=fac-transition-site&query=#main-content CLASS:  HTML: Return to top
